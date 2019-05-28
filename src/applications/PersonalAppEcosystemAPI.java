@@ -41,6 +41,9 @@ public class PersonalAppEcosystemAPI {
     System.out.println("5.删除整条轨道");
     System.out.println("6.从特定轨道上删除物体");
     System.out.println("7.计算多轨道系统中各轨道上物体分布的熵值");
+
+
+
     System.out.println("8.获取两个时间段的轨道系统结构差异");
     System.out.println("9.计算两个 App 之间的逻辑距离");
     System.out.println("10.按照时间段查询日志");
