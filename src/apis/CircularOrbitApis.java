@@ -1,10 +1,5 @@
 package apis;
 
-import centralobject.CentralObject;
-import centralobject.CentralTrackGame;
-import centralobject.Nucleus;
-import centralobject.Person;
-import circularorbit.CircularOrbit;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -12,13 +7,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
+import centralobject.CentralObject;
+import centralobject.CentralTrackGame;
+import centralobject.Nucleus;
+import centralobject.Person;
+import circularorbit.CircularOrbit;
 import physicalobject.PhysicalObject;
 import track.Track;
 
-public class CircularOrbitAPIs {
+public class CircularOrbitApis {
 
   /**
-   * 计算多轨道系统中各轨道上物体分布的熵值
+   * .计算多轨道系统中各轨道上物体分布的熵值
    * 
    * @param c 多轨道系统
    * @return 熵值 防御策略：assert判断pre-condition
@@ -26,7 +26,8 @@ public class CircularOrbitAPIs {
   public double getObjectDistributionEntropy(CircularOrbit<CentralObject, PhysicalObject> c) {
     assert c != null;
     Map<Track, List<PhysicalObject>> cir = c.getCircles();
-    int n = 0, x = 0;
+    int n = 0;
+    int x = 0;
     double h = 0;
     for (Track track : cir.keySet()) {
       n = n + cir.get(track).size();
@@ -44,9 +45,9 @@ public class CircularOrbitAPIs {
   }
 
   /**
-   * 计算任意两个物体之间的最短逻辑距离
+   * .计算任意两个物体之间的最短逻辑距离
    * 
-   * @param c  多轨道系统
+   * @param c 多轨道系统
    * @param e1 第一个物体
    * @param e2 第二个物体
    * @return 最短的逻辑距离
@@ -55,29 +56,32 @@ public class CircularOrbitAPIs {
       PhysicalObject e2) {
     assert e1 != null;
     assert e2 != null;
-    if (e1.getName().equals(e2.getName()))/* 判断名字是否一样 */
+    if (e1.getName().equals(e2.getName())) {
+      /* 判断名字是否一样 */
       return 0;
+    }
     Map<PhysicalObject, List<PhysicalObject>> adj = c.getTwoObjects();
-    Queue<PhysicalObject> queue = new LinkedBlockingQueue<>();
     Map<String, Boolean> visited = new HashMap<>();
     Map<String, Integer> distance = new HashMap<>();
-    for (PhysicalObject po : adj.keySet())
+    for (PhysicalObject po : adj.keySet()) {
       visited.put(po.getName(), false);
+    }
     visited.put(e1.getName(), true);
     distance.put(e1.getName(), 0);
+    Queue<PhysicalObject> queue = new LinkedBlockingQueue<>();
     queue.add(e1);
     while (queue.isEmpty() == false) {
       PhysicalObject nextfirst = queue.poll();
       for (Iterator<PhysicalObject> it = adj.get(nextfirst).iterator(); it.hasNext();) {
         PhysicalObject tmp = it.next();
         if (!visited.get(tmp.getName())) {
-          if (!tmp.getName().equals(e2.getName()))/* 还没访问到name2 */
-          {
+          if (!tmp.getName().equals(e2.getName())) {
+            /* 还没访问到name2 */
             visited.put(tmp.getName(), true);
             queue.add(tmp);
             distance.put(tmp.getName(), distance.get(nextfirst.getName()) + 1);
-          } else/* 访问到name2 */
-          {
+          } else {
+            /* 访问到name2 */
             return distance.get(nextfirst.getName()) + 1;
           }
         }
@@ -87,7 +91,7 @@ public class CircularOrbitAPIs {
   }
 
   /**
-   * 计算两个多轨道系统之间的差异
+   * .计算两个多轨道系统之间的差异
    * 
    * @param c1 第一个多轨道系统
    * @param c2 第二个多轨道系统
@@ -152,8 +156,7 @@ public class CircularOrbitAPIs {
         /*
          * else if(cir1.get(t).size()>1){ s="{"; for(int i=0;i<cir1.get(t).size();i++) {
          * for(PhysicalObject each:repeated) { if(!each.equals(cir1.get(t).get(i))) {
-         * s=s+cir1.get(t).get(i); if(i<cir1.size()-1) { s=s+","; } else { s=s+"}"; } }
-         * } } }
+         * s=s+cir1.get(t).get(i); if(i<cir1.size()-1) { s=s+","; } else { s=s+"}"; } } } } }
          */
         if (s == "{") {
           s = null;
@@ -193,13 +196,6 @@ public class CircularOrbitAPIs {
             }
           }
         }
-        /*
-         * else { if(trackNumberAndName.get(t.getN())==null) { s="无-{"; } else { s="-{";
-         * } for(PhysicalObject each:repeated) { for(int i=0;i<cir2.get(t).size();i++) {
-         * if(!each.equals(cir2.get(t).get(i))) { s=s+cir2.get(t).get(i);
-         * if(i<cir2.size()-1) { s=s+","; } else { s=s+"}"; } } } } if(s=="无-{") {
-         * s="无"; } else if(s=="-{") { s="-无"; } }
-         */
         for (int n : trackNumberAndObjectsDif.keySet()) {
           if (n == t.getN()) {
             int size = trackNumberAndObjectsDif.get(n) - cir2.get(t).size();

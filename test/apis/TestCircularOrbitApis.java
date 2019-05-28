@@ -1,20 +1,19 @@
 package apis;
 
 import static org.junit.Assert.assertEquals;
-
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import org.junit.Test;
 import centralobject.CentralObject;
 import circularorbit.AtomStructure;
 import circularorbit.CircularOrbit;
 import circularorbit.PersonalAppEcosystem;
 import circularorbit.TrackGame;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import org.junit.Test;
 import physicalobject.Athlete;
 import physicalobject.PhysicalObject;
 
-public class TestCircularOrbitAPIs {
+public class TestCircularOrbitApis {
 
   // Testing strategy
 
@@ -36,7 +35,7 @@ public class TestCircularOrbitAPIs {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
-    CircularOrbitAPIs apis1 = new CircularOrbitAPIs();
+    CircularOrbitApis apis1 = new CircularOrbitApis();
     double x1 = apis1.getObjectDistributionEntropy(trackgame);
     assertEquals(0, x1, 0);
 
@@ -63,7 +62,7 @@ public class TestCircularOrbitAPIs {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
-    CircularOrbitAPIs apis2 = new CircularOrbitAPIs();
+    CircularOrbitApis apis2 = new CircularOrbitApis();
     double x2 = apis2.getObjectDistributionEntropy(atomicstructure);
     assertEquals(1.83, x2, 0.01);
 
@@ -79,7 +78,7 @@ public class TestCircularOrbitAPIs {
     PersonalAppEcosystem<CentralObject, PhysicalObject> p1 =
         (PersonalAppEcosystem<CentralObject, PhysicalObject>) personalappecosystem;
     p1.putPhysicalObjectOnCircles("2019-01-02");
-    CircularOrbitAPIs apis3 = new CircularOrbitAPIs();
+    CircularOrbitApis apis3 = new CircularOrbitApis();
     double x3 = apis3.getObjectDistributionEntropy(p1);
     assertEquals(1.50, x3, 0.01);
 
@@ -108,7 +107,7 @@ public class TestCircularOrbitAPIs {
       else if (each.getName().equals("Didi"))
         didi = each;
     }
-    CircularOrbitAPIs apis = new CircularOrbitAPIs();
+    CircularOrbitApis apis = new CircularOrbitApis();
     assertEquals(1, apis.getLogicalDistance(p1, wechat, qq));
     assertEquals(0, apis.getLogicalDistance(p1, qq, qq));
     assertEquals(2, apis.getLogicalDistance(p1, eleme, qq));
@@ -141,7 +140,7 @@ public class TestCircularOrbitAPIs {
     p12.addTrackObject(5, 5, athlete4);
     p12.addTrackObject(6, 6, athlete6);
 
-    CircularOrbitAPIs apis = new CircularOrbitAPIs();
+    CircularOrbitApis apis = new CircularOrbitApis();
     Difference d1 = apis.getDifference(p11, p12);
     assertEquals(-2, d1.getTrackNums());
     Map<Integer, Integer> a = d1.getTrackNumberAndObjectsDif();
@@ -183,7 +182,7 @@ public class TestCircularOrbitAPIs {
       }
     }
 
-    CircularOrbitAPIs apis11 = new CircularOrbitAPIs();
+    CircularOrbitApis apis11 = new CircularOrbitApis();
     Difference d11 = apis11.getDifference(p12, p11);
     assertEquals(2, d11.getTrackNums());
     Map<Integer, Integer> a11 = d11.getTrackNumberAndObjectsDif();
@@ -234,7 +233,7 @@ public class TestCircularOrbitAPIs {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
-    CircularOrbitAPIs apis1 = new CircularOrbitAPIs();
+    CircularOrbitApis apis1 = new CircularOrbitApis();
     Difference d2 = apis1.getDifference(p21, p22);
     assertEquals(-1, d2.getTrackNums());
     Map<Integer, Integer> a1 = d2.getTrackNumberAndObjectsDif();
@@ -276,7 +275,7 @@ public class TestCircularOrbitAPIs {
         (PersonalAppEcosystem<CentralObject, PhysicalObject>) p32;
     p322.putPhysicalObjectOnCircles("2019-01-03");
     p32 = p322;
-    CircularOrbitAPIs apis2 = new CircularOrbitAPIs();
+    CircularOrbitApis apis2 = new CircularOrbitApis();
     Difference d3 = apis2.getDifference(p31, p32);
     assertEquals(0, d3.getTrackNums());
     Map<Integer, Integer> a2 = d3.getTrackNumberAndObjectsDif();
