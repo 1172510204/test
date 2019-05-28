@@ -33,6 +33,7 @@ public class PersonalAppEcosystemAPI {
    */
   private static void menu() {
     System.out.println("-----------------------------");
+
     System.out.println("1.读取数据文件，生成多轨道结构");
     System.out.println("2.可视化轨道结构");
     System.out.println("3.增加新轨道");
