@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="GBK" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-05-19T01:35:48.168087Z</date>
+  <millis>1558229748168</millis>
+  <nanos>87000</nanos>
+  <sequence>0</sequence>
+  <logger>applications.Logging</logger>
+  <level>INFO</level>
+  <class>applications.Logging</class>
+  <method>doLog</method>
+  <thread>1</thread>
+  <message>读取文件：PAEFalseInstallLog.txt</message>
+</record>
+<record>
+  <date>2019-05-19T01:35:48.342116Z</date>
+  <millis>1558229748342</millis>
+  <nanos>116000</nanos>
+  <sequence>1</sequence>
+  <logger>applications.Logging</logger>
+  <level>SEVERE</level>
+  <class>applications.Logging</class>
+  <method>logException</method>
+  <thread>1</thread>
+  <message>Exception.DependIncorrectException
+	at circularOrbit.PersonalAppEcosystem.testDependenceCorrect(PersonalAppEcosystem.java:287)
+	at circularOrbit.PersonalAppEcosystem.readFile(PersonalAppEcosystem.java:270)
+	at applications.PersonalAppEcosystemAPI.execute(PersonalAppEcosystemAPI.java:99)
+	at applications.mainApplications.main(mainApplications.java:31)
+</message>
+</record>
+<record>
+  <date>2019-05-19T01:35:48.346085Z</date>
+  <millis>1558229748346</millis>
+  <nanos>85000</nanos>
+  <sequence>2</sequence>
+  <logger>applications.Logging</logger>
+  <level>INFO</level>
+  <class>applications.Logging</class>
+  <method>logException</method>
+  <thread>1</thread>
+  <message>异常</message>
+</record>
+<record>
+  <date>2019-05-19T01:35:48.352033300Z</date>
+  <millis>1558229748352</millis>
+  <nanos>33300</nanos>
+  <sequence>3</sequence>
+  <logger>applications.Logging</logger>
+  <level>INFO</level>
+  <class>applications.Logging</class>
+  <method>doLog</method>
+  <thread>1</thread>
+  <message>读取文件语法错误一会儿请重新选择文件</message>
+</record>

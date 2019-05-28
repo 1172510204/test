@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="GBK" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-05-19T01:55:48.591471900Z</date>
+  <millis>1558230948591</millis>
+  <nanos>471900</nanos>
+  <sequence>0</sequence>
+  <logger>applications.Logging</logger>
+  <level>INFO</level>
+  <class>applications.Logging</class>
+  <method>doLog</method>
+  <thread>1</thread>
+  <message>读取文件TGFalseMetresFalse.txt</message>
+</record>
+<record>
+  <date>2019-05-19T01:55:48.775982700Z</date>
+  <millis>1558230948775</millis>
+  <nanos>982700</nanos>
+  <sequence>1</sequence>
+  <logger>applications.Logging</logger>
+  <level>SEVERE</level>
+  <class>applications.Logging</class>
+  <method>logException</method>
+  <thread>1</thread>
+  <message>Exception.OutRules$MetresFalseException
+	at circularOrbit.TrackGame.readFile(TrackGame.java:93)
+	at applications.TrackGameAPI.execute(TrackGameAPI.java:140)
+	at applications.mainApplications.main(mainApplications.java:15)
+</message>
+</record>
+<record>
+  <date>2019-05-19T01:55:48.891672400Z</date>
+  <millis>1558230948891</millis>
+  <nanos>672400</nanos>
+  <sequence>2</sequence>
+  <logger>applications.Logging</logger>
+  <level>INFO</level>
+  <class>applications.Logging</class>
+  <method>logException</method>
+  <thread>1</thread>
+  <message>异常</message>
+</record>
+<record>
+  <date>2019-05-19T01:55:48.896084600Z</date>
+  <millis>1558230948896</millis>
+  <nanos>84600</nanos>
+  <sequence>3</sequence>
+  <logger>applications.Logging</logger>
+  <level>INFO</level>
+  <class>applications.Logging</class>
+  <method>doLog</method>
+  <thread>1</thread>
+  <message>读取文件语法错误一会儿请重新选择文件</message>
+</record>
